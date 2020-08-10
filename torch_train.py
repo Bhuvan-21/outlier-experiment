@@ -90,8 +90,8 @@ for i in range(opt.epochs):
     loss_t=loss_t.detach().cpu().numpy()
 
     model.eval()
-    forward_v = model(torch.from_numpy(test_set[:batch_size]))
-    loss_v=MAE(forward_v,torch.from_numpy(y_test[:batch_size].reshape(forward_v.shape)))
+    forward_v = model(torch.from_numpy(test_set[:batch_size]).to(device))
+    loss_v=MAE(forward_v,torch.from_numpy(y_test[:batch_size].reshape(forward_v.shape)).to(device))
     loss_v=loss_v.detach().cpu().numpy()
     loss_t /= n_batches
     print("Epoch no: {} Loss: {} Validation loss: {} ".format( i,loss_t, loss_v))
