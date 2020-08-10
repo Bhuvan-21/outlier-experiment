@@ -19,8 +19,8 @@ y_u=opt.y_u
 o_l=opt.o_l
 o_u=opt.o_u
 n_samples=opt.n_samples
-mid_l=y_u+1
-mid_u=o_l-1
+mid_l=opt.mid_l
+mid_u=opt.mid_u
 
 test_set=[]
 train_set=[]

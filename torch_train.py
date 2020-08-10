@@ -19,8 +19,8 @@ y_u=opt.y_u
 o_l=opt.o_l
 o_u=opt.o_u
 n_samples=opt.n_samples
-mid_l=y_u+1
-mid_u=o_l-1
+mid_l=opt.mid_l
+mid_u=opt.mid_u
 
 test_set=[]
 train_set=[]
@@ -56,7 +56,7 @@ optimizer=torch.optim.Adam(model.parameters())
 n_batches = int(len(y_train) / batch_size)
 MAE=torch.nn.L1Loss()
 if torch.cuda.is_available():
-    device=torch.device('gpu:0')
+    device=torch.device('cuda:0')
     print("cuda capable device detected")
 else:
     device=torch.device('cpu')
